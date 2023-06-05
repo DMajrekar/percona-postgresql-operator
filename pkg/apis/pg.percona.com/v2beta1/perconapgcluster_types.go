@@ -284,6 +284,12 @@ type PGInstanceSetSpec struct {
 	// More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
 	// +kubebuilder:validation:Required
 	DataVolumeClaimSpec corev1.PersistentVolumeClaimSpec `json:"dataVolumeClaimSpec"`
+
+	// Overrides the default liveness probe for PostgreSQL pods.
+	LivenessProbe *corev1.Probe `json:"livenessProbe,omitempty"`
+
+	// Overrides the default readiness probe for PostgreSQL pods.
+	ReadinessProbe *corev1.Probe `json:"readinessProbe,omitempty"`
 }
 
 func (p PGInstanceSetSpec) ToCrunchy() crunchyv1beta1.PostgresInstanceSetSpec {

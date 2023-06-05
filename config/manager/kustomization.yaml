@@ -11,4 +11,4 @@ commonLabels:
 images:
 - name: postgres-operator
   newName: perconalab/percona-postgresql-operator
-  newTag: main
+  newTag: head
